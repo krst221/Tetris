@@ -7,12 +7,19 @@ export const StyledStage = styled.div `
     border: 2px solid #333;
     background: #222;
 
-    @media (max-width: 768px) {
+    @media (max-width: 560px) {
         grid-template-rows: repeat(
         ${props => props.height},
         calc(80vw / ${props => props.width})
         );
         width: 80%;
+    }
+    @media (min-width: 560px) {
+        grid-template-rows: repeat(
+        ${props => props.height},
+        calc(450px / ${props => props.width})
+        );
+        width: 450px;
     }
     @media (min-width: 768px) {
         grid-template-rows: repeat(
