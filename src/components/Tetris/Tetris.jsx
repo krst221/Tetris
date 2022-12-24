@@ -62,7 +62,7 @@ const Tetris = () => {
     // Increase the level when player has cleared 10 rows
     if (rows > (level) * 5) {
       setLevel(prev => prev + 1);
-      audio.current.playbackRate = audio.current.playbackRate * 1.01;
+      music.current.playbackRate = music.current.playbackRate * 1.01;
       // Also increase the speed
       setDropTime(500 / (level) + 50);
     }
