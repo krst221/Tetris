@@ -17,7 +17,7 @@ export const StyledDisplay = styled.div `
 
     @media (max-width: 768px) {
         padding: 10px;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         max-width: 40%;
     }
 `
