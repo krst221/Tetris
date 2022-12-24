@@ -12,14 +12,13 @@ import { useGameStatus } from '../../hooks/useGameStatus';
 import Stage from '../Stage/Stage';
 import Display from '../Display/Display';
 import Button from '../Button/Button';
-
-import tetris from '../../audio/tetris.mp3'
+import { audio } from '../../audios';
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const audio = useRef(new Audio(tetris));
+  const music = useRef(audio);
   const [playing, setPlaying] = useState(false);
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
@@ -28,15 +27,15 @@ const Tetris = () => {
 
   useEffect(() => {
     if (playing) {
-      audio.current.play();
-      audio.current.loop = true;
+      music.current.play();
+      music.current.loop = true;
     }
     else {
-      audio.current.pause();
-      audio.current.currentTime = 0;
+      music.current.pause();
+      music.current.currentTime = 0;
     }
 
-  }, [playing, audio])
+  }, [playing])
   
 
 
@@ -56,7 +55,7 @@ const Tetris = () => {
     setRows(0);
     setLevel(1);
     if(!playing) setPlaying(true);
-    else audio.current.currentTime = 0;
+    else music.current.currentTime = 0;
   }
 
   const drop = () => {

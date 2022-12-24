@@ -1,14 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
+import { boom, line } from "../audios";
 import { createStage } from "../gameHelpers";
-
-import clear from '../audio/clear.mp3'
-import expl from '../audio/boom.mp3'
 
 export const useStage = (player, resetPlayer) => {
     const [stage, setStage] = useState(createStage());
     const [rowsCleared, setRowsCleared] = useState(0);
-    const line = useRef(new Audio(clear));
-    const boom = useRef(new Audio(expl));
 
     useEffect(() => {
         setRowsCleared(0);
@@ -16,8 +12,8 @@ export const useStage = (player, resetPlayer) => {
         const sweepRows = newStage => 
           newStage.reduce((acc, row) => {
             if (row.findIndex(cell => cell[0] === 0) === -1 || row.findIndex(cell => cell[0] === 'X') !== -1) {
-                if (player.tetromino[0][1] === 'X') boom.current.play();
-                else line.current.play();
+                if (player.tetromino[0][1] === 'X') boom.play();
+                else line.play();
                 setRowsCleared(prev => prev + 1);
                 acc.unshift(new Array(newStage[0].length).fill([0, 'clear']));
                 return acc;
