@@ -12,7 +12,7 @@ export const StyledStage = styled.div `
         ${props => props.height},
         calc(80vw / ${props => props.width})
         );
-        width: 80%;
+        width: 80vw;
     }
     @media (min-width: 560px) {
         grid-template-rows: repeat(
