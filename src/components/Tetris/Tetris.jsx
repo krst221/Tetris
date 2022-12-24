@@ -109,7 +109,6 @@ const Tetris = () => {
 
   const moveClick = (e, keyCode) => {
     if (!gameOver) {
-      console.log(keyCode);
       if (keyCode === 'l') {
         movePlayer(-1);
       } else if (keyCode === 'r') {
